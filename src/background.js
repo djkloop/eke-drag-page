@@ -1,9 +1,9 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain, Notification } from 'electron'
 import {
   createProtocol,
-  installVueDevtools
+  installVueDevtools,
 } from 'vue-cli-plugin-electron-builder/lib'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -19,7 +19,7 @@ function createWindow () {
   win = new BrowserWindow({ width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
     } })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -83,3 +83,23 @@ if (isDevelopment) {
     })
   }
 }
+
+/*
+    通信
+*/
+ipcMain.on('async-render', (event, data) => {
+  if (Notification.isSupported()) {
+    const n = new Notification({
+      title: `这是一条来自渲染进程的信息`,
+      subtitle: `这是副标题`,
+      body: data,
+      silent: false,
+      hasReply: true,
+      replyPlaceholder: '输入您的年龄...',
+    })
+    n.on('reply', (e, r) => {
+      event.sender.send('main-reply', r)
+    })
+    n.show()
+  }
+})
