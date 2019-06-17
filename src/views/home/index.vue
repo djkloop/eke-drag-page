@@ -63,8 +63,6 @@ export default {
 </script>
 <style lang="scss">
 @import '@/assets/css/left-area.scss';
-</style>
-<style lang="scss">
 @import "@/assets/css/show-area.scss";
 </style>
 <style lang="scss">

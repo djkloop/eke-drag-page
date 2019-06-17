@@ -1,4 +1,5 @@
 import Crypto from './crypto'
+import clonedeep from 'clonedeep'
 
 export default {
   getUrlParam (name) {
@@ -219,12 +220,15 @@ export default {
     }
     step()
   },
-  /**
-     * 对象深拷贝
-     * @param {Object} obj 初始对象
-     * @return {Object} result 拷贝后对象
-     */
   deepClone (obj) {
+    return clonedeep(obj)
+  },
+  /**
+    * 对象深拷贝
+    * @param {Object} obj 初始对象
+    * @return {Object} result 拷贝后对象
+  */
+  cloneDeep (obj) {
     let result = Array.isArray(obj) ? [] : {}
     for (let key in obj) {
       if (obj.hasOwnProperty(key)) {
