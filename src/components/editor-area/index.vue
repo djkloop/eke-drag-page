@@ -1,6 +1,3 @@
-<style lang="scss" scoped>
-@import "../../assets/css/show-area.scss";
-</style>
 
 <template>
   <div class="appic-editor-wrapper">

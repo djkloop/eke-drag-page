@@ -1,7 +1,3 @@
-<style lang="scss">
-@import '@/assets/css/left-area.scss';
-</style>
-
 <template>
   <el-aside class="appic-aside" :style="{ minWidth: '300px', width: '20vw' }">
     <div class="appic-components-list">

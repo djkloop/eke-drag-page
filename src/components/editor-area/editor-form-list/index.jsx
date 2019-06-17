@@ -18,13 +18,16 @@ export default {
       pageData: state => state.common.pageData,
     }),
   },
-  handleDraggableAdd () {
-    console.log(1)
+  methods: {
+    handleDraggableAdd (evt) {
+      console.log(evt)
+    },
   },
   render () {
     return (
-      <draggable options={this.draggableOptions} add={this.handleDraggableAdd} value={this.list} class="appic-editor-form-list">
-
+      <draggable options={this.draggableOptions} onAdd={this.handleDraggableAdd} value={this.list} class="appic-editor-form-list">
+        {/* <div class="appic-editor-form-list-item">
+        </div> */}
       </draggable>
     )
   },

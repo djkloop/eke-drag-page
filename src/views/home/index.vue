@@ -61,8 +61,13 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
+<style lang="scss">
+@import '@/assets/css/left-area.scss';
+</style>
+<style lang="scss">
+@import "@/assets/css/show-area.scss";
+</style>
+<style lang="scss">
   .el-main {
     min-height: calc(100vh - 120px);
     background-color: #E9EEF3;
