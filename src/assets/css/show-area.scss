@@ -56,4 +56,62 @@
     }
   }
 
+  .appic-form-view {
+    margin: 0;
+    padding: 5px 10px;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      display: block;
+      z-index: 1001;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #666;
+      opacity: 1;
+    }
+
+    &:hover {
+      background: #ecf5ff;
+    }
+
+    &.active {
+      background: $primary-background-color;
+      // box-shadow: 0px 1px 10px 1px #90c7ff;
+      z-index: 1111;
+    }
+
+    .wg-item {
+      display: flex;
+      line-height: 50px;
+    }
+
+  .wg-input, .wg-select {
+      width: 100%;
+      height: 40px;
+      margin: 5px 0;
+      color: #666;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      outline: none;
+      text-indent: 10px;
+      // background: #fff;
+      transition: 0.3s;
+    }
+
+  .wg-title {
+      font-size: 14px;
+      margin-right: 10px;
+      color: #333;
+    }
+
+  }
+
 }

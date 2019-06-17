@@ -29,8 +29,11 @@ export default {
       const _idx = evt.newIndex
       const COMPONENTS_ONLY_KEY = evt.timeStamp + '_' + Date.now()
       let cloneDeepObj = this.$util.deepClone(this.pageData[this.list][_idx])
+      console.log(this.pageData[this.list], _idx)
+      debugger
       cloneDeepObj.key = this.pageData[this.list][_idx].type + '_' + COMPONENTS_ONLY_KEY
       this.$set(this.pageData[this.list], _idx, cloneDeepObj)
+      console.log(this)
       this.$store.commit('setSelectWg', this.pageData[this.list][_idx])
       this.$store.commit('setConfigTab', 'widget')
     },
@@ -39,11 +42,13 @@ export default {
   render () {
     return (
       <draggable options={ this.draggableOptions } onAdd={this.handleDraggableAdd} v-model={this.pageData[this.list]} class="appic-editor-form-list">
-        {
-          this.pageData[this.list].map((item, idx) => {
-            return <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
-          })
-        }
+        <div class="appic-form-view">
+          {
+            this.pageData[this.list].map((item, idx) => {
+              return <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
+            })
+          }
+        </div>
       </draggable>
     )
   },
