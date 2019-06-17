@@ -1,4 +1,6 @@
-<style lang="scss">
+<style lang="scss" scoped>
+@import "../../assets/css/left-area.scss";
+
 .appic-container-show-area {
   min-width: 400px;
   max-width: 720px;

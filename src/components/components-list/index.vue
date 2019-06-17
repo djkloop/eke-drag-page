@@ -7,11 +7,11 @@
     <div class="appic-components-list">
       <div class="appic-component-item">
         <div class="appic-component-title">基础类组件</div>
-        <draggable
-          tag="ul"
-          :list="basicComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
-        >
+          <draggable
+            tag="ul"
+            :list="basicComponents"
+            v-bind="draggableOptions.basicOptions"
+          >
           <li class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
             <a>{{item.name}}</a>
           </li>
@@ -22,7 +22,7 @@
         <draggable
           tag="ul"
           :list="imgComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
+          v-bind="draggableOptions.imgOptions"
         >
           <li class="appic-component-label" v-for="(item, index) in imgComponents" :key="index">
             <a>{{item.name}}</a>
@@ -34,61 +34,13 @@
         <draggable
           tag="ul"
           :list="assistComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
+          v-bind="draggableOptions.assistOptions"
         >
           <li class="appic-component-label" v-for="(item, index) in assistComponents" :key="index">
             <a>{{item.name}}</a>
           </li>
         </draggable>
       </div>
-      <!-- <div class="appic-component-item">
-        <div class="appic-component-title">反馈类组件</div>
-        <draggable
-          element="ul"
-          :list="basicComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
-        >
-          <li class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
-            <a>{{item.name}}</a>
-          </li>
-        </draggable>
-      </div>
-      <div class="appic-component-item">
-        <div class="appic-component-title">展示类组件</div>
-        <draggable
-          element="ul"
-          :list="basicComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
-        >
-          <li class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
-            <a>{{item.name}}</a>
-          </li>
-        </draggable>
-      </div>
-      <div class="appic-component-item">
-        <div class="appic-component-title">导航类组件</div>
-        <draggable
-          element="ul"
-          :list="basicComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
-        >
-          <li class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
-            <a>{{item.name}}</a>
-          </li>
-        </draggable>
-      </div>
-      <div class="appic-component-item">
-        <div class="appic-component-title">业务类组件</div>
-        <draggable
-          element="ul"
-          :list="basicComponents"
-          :options="{group:{ name:'widget', pull:'clone',put:false},sort:false, ghostClass: 'ghost'}"
-        >
-          <li class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
-            <a>{{item.name}}</a>
-          </li>
-        </draggable>
-      </div> -->
     </div>
   </el-aside>
 </template>
@@ -107,6 +59,11 @@ export default {
       basicComponents: allWidget.basicComponents,
       imgComponents: allWidget.imgComponents,
       assistComponents: allWidget.assistComponents,
+      draggableOptions: {
+        basicOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
+        imgOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
+        assistOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
+      },
     }
   },
   computed: {
