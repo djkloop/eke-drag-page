@@ -48,6 +48,13 @@ export default {
       const hasEle = this.pageData[this.list][idx] !== void 0
       if (hasEle) {
         this.pageData[this.list].splice(idx, 1)
+        if (this.pageData[this.list].length > 0) {
+          if (idx === 0) {
+            this.handleSelectWidget(idx)
+          } else {
+            this.handleSelectWidget(--idx)
+          }
+        }
       }
     },
     handleWidgetCopy (idx, e) {
