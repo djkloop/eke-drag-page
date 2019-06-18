@@ -33,13 +33,24 @@ export default {
       this.$store.commit('setSelectWg', this.pageData[this.list][_idx])
       this.$store.commit('setConfigTab', 'widget')
     },
-    handleWidgetDelete (idx) {
+    handleSelectWidget (idx) {
+      console.log(idx)
+      this.$notify({
+        title: `当前页面选中的第 - ${idx}个组件`,
+        message: '右下角厉害了...',
+        position: 'bottom-right',
+      })
+      this.$store.commit('setSelectWg', this.pageData[this.list][idx])
+    },
+    handleWidgetDelete (idx, e) {
+      e.stopPropagation()
       const hasEle = this.pageData[this.list][idx] !== void 0
       if (hasEle) {
         this.pageData[this.list].splice(idx, 1)
       }
     },
-    handleWidgetCopy (idx) {
+    handleWidgetCopy (idx, e) {
+      e.stopPropagation()
       const hasEle = this.pageData[this.list][idx] !== void 0
       if (hasEle) {
         const cloneEle = this.$util.deepClone(this.pageData[this.list][idx])
@@ -56,10 +67,10 @@ export default {
         {
           this.pageData[this.list].map((item, idx) => {
             return (
-              <div class="appic-form-view">
+              <div class="appic-form-view" onClick={() => this.handleSelectWidget(idx)}>
                 <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
-                <el-button class="widget-action-copy" circle plain type="primary" title="复制" onClick={() => this.handleWidgetCopy(idx)}>复制</el-button>
-                <el-button class="widget-action-delete" circle plain type="danger" title="删除" onClick={() => this.handleWidgetDelete(idx)}>删除</el-button>
+                <el-button class="widget-action-copy" circle plain type="primary" title="复制" onClick={(e) => this.handleWidgetCopy(idx, e)}>复制</el-button>
+                <el-button class="widget-action-delete" circle plain type="danger" title="删除" onClick={(e) => this.handleWidgetDelete(idx, e)}>删除</el-button>
               </div>
             )
           })
