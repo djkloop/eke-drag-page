@@ -8,7 +8,7 @@
             :list="basicComponents"
             v-bind="draggableOptions.basicOptions"
           >
-          <li class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
+          <li :data-type="item.type" class="appic-component-label" v-for="(item, index) in basicComponents" :key="index">
             <a>{{item.name}}</a>
           </li>
         </draggable>
@@ -20,7 +20,7 @@
           :list="imgComponents"
           v-bind="draggableOptions.imgOptions"
         >
-          <li class="appic-component-label" v-for="(item, index) in imgComponents" :key="index">
+          <li :data-type="item.type" class="appic-component-label" v-for="(item, index) in imgComponents" :key="index">
             <a>{{item.name}}</a>
           </li>
         </draggable>
@@ -32,7 +32,7 @@
           :list="assistComponents"
           v-bind="draggableOptions.assistOptions"
         >
-          <li class="appic-component-label" v-for="(item, index) in assistComponents" :key="index">
+          <li :data-type="item.type" class="appic-component-label" v-for="(item, index) in assistComponents" :key="index">
             <a>{{item.name}}</a>
           </li>
         </draggable>

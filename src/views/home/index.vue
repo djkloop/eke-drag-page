@@ -65,7 +65,7 @@ export default {
 @import '@/assets/css/left-area.scss';
 @import "@/assets/css/show-area.scss";
 </style>
-<style lang="scss">
+<style lang="scss" scoped>
   .el-main {
     min-height: calc(100vh - 120px);
     background-color: #E9EEF3;
@@ -75,5 +75,6 @@ export default {
   .el-aside,
   .el-main {
     overflow: auto;
+    overflow-x: hidden;
   }
 </style>

@@ -92,19 +92,19 @@
       line-height: 50px;
     }
 
-  .wg-input, .wg-select {
-      width: 100%;
-      height: 40px;
-      margin: 5px 0;
-      color: #666;
-      font-size: 14px;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      outline: none;
-      text-indent: 10px;
-      // background: #fff;
-      transition: 0.3s;
-    }
+  .widget-action-delete {
+    position: absolute;
+    right: 10px;
+    bottom: -20px;
+    z-index: 1009;
+  }
+
+  .widget-action-copy {
+    position: absolute;
+    right: 70px;
+    bottom: -20px;
+    z-index: 1009;
+  }
 
   .wg-title {
       font-size: 14px;

@@ -1,7 +1,7 @@
 import draggable from 'vuedraggable'
 import { mapState } from 'vuex'
 import PropTypes from 'vue-types'
-import WgInput from './wg-input'
+import WgInput from './wg-input/'
 
 export default {
   name: 'editor-form-list',
@@ -25,30 +25,35 @@ export default {
   },
   methods: {
     handleDraggableAdd (evt) {
-      console.log(evt, this.pageData[this.list])
       const _idx = evt.newIndex
       const COMPONENTS_ONLY_KEY = evt.timeStamp + '_' + Date.now()
       let cloneDeepObj = this.$util.deepClone(this.pageData[this.list][_idx])
-      console.log(this.pageData[this.list], _idx)
-      debugger
       cloneDeepObj.key = this.pageData[this.list][_idx].type + '_' + COMPONENTS_ONLY_KEY
       this.$set(this.pageData[this.list], _idx, cloneDeepObj)
-      console.log(this)
       this.$store.commit('setSelectWg', this.pageData[this.list][_idx])
       this.$store.commit('setConfigTab', 'widget')
     },
+    handleWidgetDelete (idx) {
+      console.log(idx)
+    },
+    handleWidgetCopy (idx) {
+      console.log(idx)
+    },
   },
-
   render () {
     return (
       <draggable options={ this.draggableOptions } onAdd={this.handleDraggableAdd} v-model={this.pageData[this.list]} class="appic-editor-form-list">
-        <div class="appic-form-view">
-          {
-            this.pageData[this.list].map((item, idx) => {
-              return <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
-            })
-          }
-        </div>
+        {
+          this.pageData[this.list].map((item, idx) => {
+            return (
+              <div class="appic-form-view">
+                <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
+                <el-button class="widget-action-copy" circle plain type="primary" title="复制" onClick={() => this.handleWidgetCopy(idx)}>复制</el-button>
+                <el-button class="widget-action-delete" circle plain type="danger" title="删除" onClick={() => this.handleWidgetDelete(idx)}>删除</el-button>
+              </div>
+            )
+          })
+        }
       </draggable>
     )
   },
