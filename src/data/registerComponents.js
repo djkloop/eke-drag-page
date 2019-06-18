@@ -25,7 +25,7 @@ export default {
     },
     {
       'type': 'input',
-      'name': '输入框',
+      'name': '输入框(可以测试)',
       'placeholder': '请输入姓名',
       'showLabel': false,
       'label': {
