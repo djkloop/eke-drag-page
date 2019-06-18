@@ -13,6 +13,7 @@
   },
   "main": "background.js",
   "dependencies": {
+    "classnames": "^2.2.6",
     "clonedeep": "^2.0.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.4.5",
