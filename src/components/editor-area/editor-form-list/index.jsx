@@ -34,10 +34,20 @@ export default {
       this.$store.commit('setConfigTab', 'widget')
     },
     handleWidgetDelete (idx) {
-      console.log(idx)
+      const hasEle = this.pageData[this.list][idx] !== void 0
+      if (hasEle) {
+        this.pageData[this.list].splice(idx, 1)
+      }
     },
     handleWidgetCopy (idx) {
-      console.log(idx)
+      const hasEle = this.pageData[this.list][idx] !== void 0
+      if (hasEle) {
+        const cloneEle = this.$util.deepClone(this.pageData[this.list][idx])
+        const COMPONENTS_ONLY_KEY = Math.ceil(Math.random() * 1000000) + '_' + Date.now()
+        cloneEle.key = this.pageData[this.list][idx].type + '_' + COMPONENTS_ONLY_KEY
+        this.pageData[this.list].splice(idx, 0, cloneEle)
+        this.$store.commit('setSelectWg', this.pageData[this.list][idx + 1])
+      }
     },
   },
   render () {
