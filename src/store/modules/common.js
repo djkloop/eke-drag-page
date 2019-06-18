@@ -4,7 +4,7 @@ const state = {
     formList: [],
     config: {},
   },
-  selectWg: [],
+  selectWg: {},
   configTab: 'page',
   wgCollapse: 'base',
   selectTheme: '',
@@ -23,6 +23,7 @@ const mutations = {
     state.pageData = payload
   },
   setSelectWg (state, payload) {
+    console.log(state)
     state.selectWg = payload
   },
   setConfigTab (state, payload) {

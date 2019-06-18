@@ -38,8 +38,8 @@
             <editor-area />
           </el-main>
         </el-container>
-        <el-aside>
-          good
+        <el-aside width="450px" class="appic-components-config">
+          <components-config />
         </el-aside>
       </el-container>
       <el-footer>1</el-footer>
@@ -51,6 +51,7 @@
 import Header from '@/components/header'
 import ComponentsList from '@/components/components-list'
 import EditorArea from '@/components/editor-area'
+import ComponentsConfig from '@/components/components-config'
 
 export default {
   name: 'home',
@@ -58,11 +59,13 @@ export default {
     Header,
     ComponentsList,
     EditorArea,
+    ComponentsConfig,
   },
 }
 </script>
 <style lang="scss">
 @import '@/assets/css/left-area.scss';
+@import '@/assets/css/right-area.scss';
 @import "@/assets/css/show-area.scss";
 </style>
 <style lang="scss" scoped>
@@ -76,5 +79,9 @@ export default {
   .el-main {
     overflow: auto;
     overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 </style>

@@ -1,7 +1,7 @@
 import draggable from 'vuedraggable'
 import { mapState } from 'vuex'
 import PropTypes from 'vue-types'
-import WgInput from './wg-input/'
+import WgInput from './wg-input'
 
 export default {
   name: 'editor-form-list',
