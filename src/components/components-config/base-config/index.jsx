@@ -14,7 +14,10 @@ export default {
   methods: {
     handleSelectField (apiKey, types) {
       let selectField = types.find(item => apiKey === item.value)
-      console.log(selectField)
+      console.log(selectField, ' xxxxxxx', this.selectConfig)
+      if (this.selectConfig.hasOwnProperty('label')) {
+        this.selectConfig.label.labelTitle = selectField.label
+      }
       if (this.selectConfig.hasOwnProperty('placeholder')) {
         this.selectConfig.placeholder = this.selectConfig.type === 'input' ? `请输入${selectField.label}` : `请选择${selectField.label}`
       }
@@ -38,7 +41,7 @@ export default {
     renderSwitchFormItem (props, config) {
       return (
         <ElFormItem label={`${props.label}`}>
-          <ElSwitch active-color="#13ce66" active-value={true} inactive-value={false} inactive-color="#ff4949" v-model={config.showLabel} onChange={val => this[props['func']](val)} ></ElSwitch>
+          <ElSwitch active-value={true} inactive-value={false} v-model={config.showLabel} active-icon-class="el-icon-check" inactive-icon-class="el-icon-close" onChange={val => this[props['func']](val)} ></ElSwitch>
         </ElFormItem>
       )
     },

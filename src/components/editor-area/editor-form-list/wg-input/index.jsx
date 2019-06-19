@@ -9,15 +9,16 @@ export default {
 
   },
   render () {
-    const { value, label, ...resetProps } = getOptionProps(this).item
+    const { value, label, showLabel, ...resetProps } = getOptionProps(this).item
+    const isShowLabel = showLabel
     const elInputAttrs = {
       attrs: {
         ...resetProps,
       },
     }
-    console.log(elInputAttrs)
+    console.log(label, showLabel)
     return (
-      <ElFormItem label={'xxx'}>
+      <ElFormItem label={isShowLabel ? label.labelTitle : null}>
         <ElInput v-model={value} {...elInputAttrs } dataItem={JSON.stringify(elInputAttrs)}/>
       </ElFormItem>
     )
