@@ -35,7 +35,6 @@ export default {
       this.$store.commit('setConfigTab', 'widget')
     },
     handleSelectWidget (idx) {
-      console.log(idx)
       this.$notify({
         title: `当前页面选中的第 - ${idx}个组件`,
         message: '右下角厉害了...',
