@@ -1,6 +1,5 @@
 import PropTypes from 'vue-types'
 import { getOptionProps } from '@/utils/prop-typs'
-
 export default {
   name: 'wg-input',
   props: {
@@ -16,6 +15,11 @@ export default {
         ...resetProps,
       },
     }
-    return <ElInput v-model={value} {...elInputAttrs } dataItem={JSON.stringify(elInputAttrs)}/>
+    console.log(elInputAttrs)
+    return (
+      <ElFormItem label={'xxx'}>
+        <ElInput v-model={value} {...elInputAttrs } dataItem={JSON.stringify(elInputAttrs)}/>
+      </ElFormItem>
+    )
   },
 }

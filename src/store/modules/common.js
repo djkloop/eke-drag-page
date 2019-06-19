@@ -23,7 +23,6 @@ const mutations = {
     state.pageData = payload
   },
   setSelectWg (state, payload) {
-    console.log(state)
     state.selectWg = payload
   },
   setConfigTab (state, payload) {

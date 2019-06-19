@@ -71,25 +71,27 @@ export default {
   },
   render () {
     return (
-      <draggable options={ this.draggableOptions } onAdd={this.handleDraggableAdd} v-model={this.pageData[this.list]} class="appic-editor-form-list">
-        {
-          this.pageData[this.list].map((item, idx) => {
-            return (
-              <div class={classnames('appic-form-view', { active: this.selectWg.key === item.key })} onClick={() => this.handleSelectWidget(idx)}>
-                <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
-                {
-                  this.selectWg.key === item.key
-                    ? <Fragment>
-                      <ElButton class="widget-action-copy" circle plain type="primary" title="复制" onClick={(e) => this.handleWidgetCopy(idx, e)}>复制</ElButton>
-                      <ElButton class="widget-action-delete" circle plain type="danger" title="删除" onClick={(e) => this.handleWidgetDelete(idx, e)}>删除</ElButton>
-                    </Fragment>
-                    : null
-                }
-              </div>
-            )
-          })
-        }
-      </draggable>
+      <ElForm>
+        <draggable options={ this.draggableOptions } onAdd={this.handleDraggableAdd} v-model={this.pageData[this.list]} class="appic-editor-form-list">
+          {
+            this.pageData[this.list].map((item, idx) => {
+              return (
+                <div class={classnames('appic-form-view', { active: this.selectWg.key === item.key })} onClick={() => this.handleSelectWidget(idx)}>
+                  <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
+                  {
+                    this.selectWg.key === item.key
+                      ? <Fragment>
+                        <ElButton class="widget-action-copy" circle plain type="primary" title="复制" onClick={(e) => this.handleWidgetCopy(idx, e)}>复制</ElButton>
+                        <ElButton class="widget-action-delete" circle plain type="danger" title="删除" onClick={(e) => this.handleWidgetDelete(idx, e)}>删除</ElButton>
+                      </Fragment>
+                      : null
+                  }
+                </div>
+              )
+            })
+          }
+        </draggable>
+      </ElForm>
     )
   },
 }
