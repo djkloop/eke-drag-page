@@ -18,6 +18,8 @@
     "clonedeep": "^2.0.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.4.5",
+    "monaco-editor": "^0.17.1",
+    "monaco-editor-webpack-plugin": "^1.7.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

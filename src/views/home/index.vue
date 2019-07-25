@@ -41,6 +41,7 @@
         <el-aside width="450px" class="appic-components-config">
           <components-config />
         </el-aside>
+        <ElEditor />
       </el-container>
       <el-footer>1</el-footer>
     </el-container>
@@ -52,6 +53,7 @@ import Header from '@/components/header'
 import ComponentsList from '@/components/components-list'
 import EditorArea from '@/components/editor-area'
 import ComponentsConfig from '@/components/components-config'
+import ElEditor from '@/components/eke-editor'
 
 export default {
   name: 'home',
@@ -60,6 +62,7 @@ export default {
     ComponentsList,
     EditorArea,
     ComponentsConfig,
+    ElEditor,
   },
 }
 </script>
@@ -67,6 +70,7 @@ export default {
 @import '@/assets/css/left-area.scss';
 @import '@/assets/css/right-area.scss';
 @import "@/assets/css/show-area.scss";
+@import "@/assets/css/eke-editor.scss";
 </style>
 <style lang="scss" scoped>
   .el-main {

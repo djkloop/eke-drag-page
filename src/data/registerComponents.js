@@ -1,4 +1,24 @@
 export default {
+  'layoutComponents': [
+    {
+      type: 'row',
+      name: 'Row组件',
+      originProps: {
+        gutter: 1,
+        type: 'flex',
+        justify: 'start',
+        align: 'middle',
+        tag: 'span',
+      },
+      customProps: {
+
+      },
+    },
+    {
+      type: 'col',
+      name: 'Col组件',
+    },
+  ],
   'basicComponents': [
     {
       'type': 'phone',

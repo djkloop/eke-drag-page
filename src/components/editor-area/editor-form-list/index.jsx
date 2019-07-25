@@ -3,6 +3,7 @@ import { mapState } from 'vuex'
 import PropTypes from 'vue-types'
 import classnames from 'classnames'
 import WgInput from './wg-input'
+import WgRow from './wg-row'
 
 export default {
   name: 'editor-form-list',
@@ -76,14 +77,20 @@ export default {
             this.pageData[this.list].map((item, idx) => {
               return (
                 <div class={classnames('appic-form-view', { active: this.selectWg.key === item.key })} onClick={() => this.handleSelectWidget(idx)}>
-                  <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
                   {
-                    this.selectWg.key === item.key
+                    (item.type === 'phone'
+                      ? <WgInput item={item} key={idx} data-item={JSON.stringify(item)} />
+                      : item.type === 'row'
+                        ? <WgRow item={item} key={idx} data-item={JSON.stringify(item)} />
+                        : null)
+                  }
+                  {
+                    (this.selectWg.key === item.key
                       ? <Fragment>
                         <ElButton class="widget-action-copy" circle plain type="primary" title="复制" onClick={(e) => this.handleWidgetCopy(idx, e)}>复制</ElButton>
                         <ElButton class="widget-action-delete" circle plain type="danger" title="删除" onClick={(e) => this.handleWidgetDelete(idx, e)}>删除</ElButton>
                       </Fragment>
-                      : null
+                      : null)
                   }
                 </div>
               )

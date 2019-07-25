@@ -2,6 +2,18 @@
   <el-aside class="appic-aside" :style="{ minWidth: '300px', width: '20vw' }">
     <div class="appic-components-list">
       <div class="appic-component-item">
+        <div class="appic-component-title">布局类组件</div>
+          <draggable
+            tag="ul"
+            :list="layoutComponents"
+            v-bind="draggableOptions.layoutOptions"
+          >
+          <li :data-type="item.type" class="appic-component-label" v-for="(item, index) in layoutComponents" :key="index">
+            <a>{{item.name}}<i class={item.type}></i></a>
+          </li>
+        </draggable>
+      </div>
+      <div class="appic-component-item">
         <div class="appic-component-title">基础类组件</div>
           <draggable
             tag="ul"
@@ -55,8 +67,10 @@ export default {
       basicComponents: allWidget.basicComponents,
       imgComponents: allWidget.imgComponents,
       assistComponents: allWidget.assistComponents,
+      layoutComponents: allWidget.layoutComponents,
       draggableOptions: {
         basicOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
+        layoutOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
         imgOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
         assistOptions: { group: { name: 'widget', pull: 'clone', put: false }, sort: false, ghostClass: 'ghost' },
       },
