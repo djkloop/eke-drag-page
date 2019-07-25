@@ -11,19 +11,30 @@ export default {
 
   },
   render () {
-    const { value, label, showLabel, ...resetProps } = getOptionProps(this).item
-    console.log(this.item)
-    const isShowLabel = showLabel
-    const elInputAttrs = {
+    const props = getOptionProps(this).item
+    const { originProps } = props
+    const elRowProps = {
       attrs: {
-        ...resetProps,
+      },
+      props: {
+        ...originProps,
       },
     }
-    console.log(label, showLabel)
     return (
-      <ElFormItem label={isShowLabel ? label.labelTitle : null}>
-        <ElRow {...elInputAttrs } dataItem={JSON.stringify(elInputAttrs)} >123</ElRow>
-      </ElFormItem>
+      <ElRow {...elRowProps} dataItem={JSON.stringify(elRowProps)} >
+        <ElCol span={6}>
+          <div>11111111</div>
+        </ElCol>
+        <ElCol span={6}>
+          <div>11111111</div>
+        </ElCol>
+        <ElCol span={6}>
+          <div>11111111</div>
+        </ElCol>
+        <ElCol span={6}>
+          <div>11111111</div>
+        </ElCol>
+      </ElRow>
     )
   },
 }

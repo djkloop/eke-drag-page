@@ -8,7 +8,7 @@ export default {
         type: 'flex',
         justify: 'start',
         align: 'middle',
-        tag: 'span',
+        tag: 'div',
       },
       customProps: {
 
