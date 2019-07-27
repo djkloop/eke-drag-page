@@ -13,6 +13,7 @@ export default {
       customProps: {
 
       },
+      tasks: [],
     },
     {
       type: 'col',

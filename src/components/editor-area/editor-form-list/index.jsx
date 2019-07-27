@@ -4,11 +4,18 @@ import PropTypes from 'vue-types'
 import classnames from 'classnames'
 import WgInput from './wg-input'
 import WgRow from './wg-row'
+import NestedDraggable from '../nested-draggable/NestedDraggable'
 
 export default {
   name: 'editor-form-list',
   props: {
     list: PropTypes.string,
+  },
+  computed: {
+    ...mapState({
+      selectWg: state => state.common.selectWg,
+      pageData: state => state.common.pageData,
+    }),
   },
   components: {
     draggable,
@@ -71,8 +78,13 @@ export default {
   },
   render () {
     return (
+
       <ElForm>
-        <draggable options={ this.draggableOptions } onAdd={this.handleDraggableAdd} v-model={this.pageData[this.list]} class="appic-editor-form-list">
+        <NestedDraggable
+          listType={this.list}
+          tasks={this.pageData[this.list]}
+        />
+        {/* <draggable options={ this.draggableOptions } onAdd={this.handleDraggableAdd} v-model={this.pageData[this.list]} class="appic-editor-form-list">
           {
             this.pageData[this.list].map((item, idx) => {
               return (
@@ -96,7 +108,7 @@ export default {
               )
             })
           }
-        </draggable>
+        </draggable> */}
       </ElForm>
     )
   },

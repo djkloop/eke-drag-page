@@ -1,7 +1,14 @@
 import Crypto from './crypto'
 import clonedeep from 'clonedeep'
+let GlobalID = 0
 
 export default {
+  /**
+   * 生成id
+   */
+  uniqueId () {
+    return ++GlobalID
+  },
   getUrlParam (name) {
     var reg = new RegExp('(^|/?|&)' + name + '=([^&]*)(&|$)', 'i')
     var l = window.location.href
@@ -241,4 +248,5 @@ export default {
     }
     return result
   },
+
 }
