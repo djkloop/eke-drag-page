@@ -14,10 +14,13 @@ export default {
 
       },
       tasks: [],
+      componentType: 'layout',
     },
     {
       type: 'col',
       name: 'Col组件',
+      tasks: [],
+      componentType: 'layout',
     },
   ],
   'basicComponents': [
@@ -43,6 +46,7 @@ export default {
           'background': '#409EFF',
         },
       },
+      componentType: 'basic',
     },
     {
       'type': 'input',
@@ -61,6 +65,7 @@ export default {
       'style': {
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'basic',
     },
     {
       'type': 'checkbox',
@@ -87,6 +92,8 @@ export default {
       'style': {
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'basic',
+
     },
     {
       'type': 'date',
@@ -103,6 +110,8 @@ export default {
       'style': {
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'basic',
+
     },
     {
       'type': 'select',
@@ -127,6 +136,8 @@ export default {
       'style': {
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'basic',
+
     },
     {
       'type': 'switch',
@@ -143,6 +154,8 @@ export default {
       'style': {
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'basic',
+
     },
     {
       'type': 'h-picker',
@@ -189,6 +202,8 @@ export default {
       'style': {
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'basic',
+
     },
     {
       'type': 'button',
@@ -208,6 +223,8 @@ export default {
           'background': '#409EFF',
         },
       },
+      componentType: 'basic',
+
     },
   ],
   'imgComponents': [
@@ -233,6 +250,8 @@ export default {
         'margin': '0px 0px 0px 0px',
         'height': 250,
       },
+      componentType: 'img',
+
     },
     {
       'type': 'imgShow',
@@ -255,6 +274,7 @@ export default {
         'color': '#333333',
         'margin': '0px 0px 0px 0px',
       },
+      componentType: 'assist',
     },
     {
       'type': 'splitLine',
@@ -266,6 +286,7 @@ export default {
         'borderTopWidth': '1px',
         'margin': '20px 0px 20px 0px',
       },
+      componentType: 'assist',
     },
   ],
 }

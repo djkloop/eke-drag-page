@@ -1,10 +1,9 @@
 import draggable from 'vuedraggable'
 import { mapState } from 'vuex'
 import PropTypes from 'vue-types'
-import classnames from 'classnames'
 import WgInput from './wg-input'
 import WgRow from './wg-row'
-import NestedDraggable from '../nested-draggable/NestedDraggable'
+import NestedDraggable from '../nested-draggable/nest'
 
 export default {
   name: 'editor-form-list',
@@ -14,7 +13,10 @@ export default {
   computed: {
     ...mapState({
       selectWg: state => state.common.selectWg,
-      pageData: state => state.common.pageData,
+      pageData (state) {
+        console.log(state)
+        return state.common.pageData
+      },
     }),
   },
   components: {
@@ -25,12 +27,6 @@ export default {
     return {
       draggableOptions: { group: 'widget', ghostClass: 'ghost', swapThreshold: 0.5, animation: 100 },
     }
-  },
-  computed: {
-    ...mapState({
-      selectWg: state => state.common.selectWg,
-      pageData: state => state.common.pageData,
-    }),
   },
   methods: {
     handleDraggableAdd (evt) {
